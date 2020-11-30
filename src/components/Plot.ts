@@ -14,15 +14,19 @@ const ParseFunc = (func: string): string => {
     return func.replaceAll("pi", "3.141592653590")
 }
 
-const Input = (func: Func) => h('input', {
-    oninput: (state: State, event) => {
-        setPlotErrorMessage('')
-        const stateCopy: State = {...state}
-        stateCopy.functions[func.index].value = event.target.value
-        return stateCopy
-    },
-    value: func.value
-}, [])
+const Input = (func: Func) => h(
+    'input', 
+    {
+        class: 'function-input',
+        oninput: (state: State, event) => {
+            setPlotErrorMessage('')
+            const stateCopy: State = {...state}
+            stateCopy.functions[func.index].value = event.target.value
+            return stateCopy
+        },
+        value: func.value
+    }
+)
 
 const Plot = (myFunc: Func, targetFunc: Func) => {
     const id = 'main-function-plot'
@@ -41,17 +45,21 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
             })
         }
         catch(e) {
+            if (e != "Error: there are no statements saved in this generator, make sure you parse an expression before compiling it")
             setPlotErrorMessage(e)
         }
     }
     , 0)
 
-    return h('div', {id, class: 'functionPlot'}, [])
+    return h('div', {id, class: 'function-plot'}, [])
 }
 
 export default (myFunc: Func, targetFunc: Func) => {
     return h(
-        'div', {}, 
+        'div', 
+        {
+            class: 'plot-and-input'
+        }, 
         [
             Plot (myFunc, targetFunc),
             Input(myFunc),
