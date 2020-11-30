@@ -1,0 +1,27 @@
+{
+  "name": "functionplot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env DEBUG=true parcel ./src/index.html --open",
+    "prebuild": "rmdir docs /s /q",
+    "build": "parcel build ./src/index.html --out-dir docs --public-url ./"
+  },
+  "author": "Jules Fouchy",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "d3": "^3.5.17",
+    "function-plot": "^1.19.2",
+    "hyperapp": "^2.0.4"
+  },
+  "devDependencies": {
+    "hyperapp-v2-basiclogger": "^0.3.0",
+    "@types/node": "^14.6.4",
+    "cross-env": "^7.0.2",
+    "sass": "^1.26.10",
+    "parcel": "^1.12.4",
+    "typescript": "^4.0.2"
+  }
+}
