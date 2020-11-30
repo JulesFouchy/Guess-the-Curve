@@ -1,11 +1,14 @@
+import type { Func } from './types/Func'
+
 interface State {
-    func1: String,
-    func2: String,
+    functions: Func[]
 }
 
 const state: State = {
-    func1: 'x^2',
-    func2: 'x^3',
+    functions: [
+        {value: '0', index: 0},
+        {value: 'x', index: 1},
+    ]
 }
 
 export default state
