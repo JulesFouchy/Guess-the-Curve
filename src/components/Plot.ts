@@ -9,6 +9,11 @@ const setPlotErrorMessage = (msg: string) => {
     document.getElementById('plot-error').innerHTML = msg
 }
 
+const ParseFunc = (func: string): string => {
+    // replace "pi" by its value
+    return func.replaceAll("pi", "3.141592653590")
+}
+
 const Input = (func: Func) => h('input', {
     oninput: (state: State, event) => {
         setPlotErrorMessage('')
@@ -30,8 +35,8 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
                 disableZoom: true,
                 grid: true,
                 data: [
-                    { fn: myFunc.value },
-                    { fn: targetFunc.value },
+                    { fn: ParseFunc(myFunc.value) },
+                    { fn: ParseFunc(targetFunc.value) },
                 ]
             })
         }
