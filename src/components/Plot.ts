@@ -18,6 +18,7 @@ const Input = (func: Func) => h(
     'input', 
     {
         class: 'function-input',
+        spellcheck: false,
         oninput: (state: State, event) => {
             setPlotErrorMessage('')
             const stateCopy: State = {...state}
