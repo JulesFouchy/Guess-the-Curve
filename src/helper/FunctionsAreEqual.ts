@@ -25,5 +25,8 @@ const isZeroFunction = (f: string): boolean => {
 }
 
 export default (f: string, g: string): boolean => {
-    return isZeroFunction(`(${f}) - (${g})`)
+    let diff = `(${f}) - (${g})`
+    // @ts-expect-error
+    diff = diff.replaceAll("ln", "log")
+    return isZeroFunction(diff)
 }
