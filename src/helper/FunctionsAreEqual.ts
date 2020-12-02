@@ -5,16 +5,23 @@ const evalF = (f: string, x: number): number => {
 }
 
 const isZero = (x: number): boolean => {
-    return Math.abs(x) < 0.00000001
+    return Math.abs(x) < 0.04
 }
 
 const isZeroFunction = (f: string): boolean => {
+    let atLestOnePointIsNotAnError = false
     for (let x = -1; x < 1; x += 0.01) {
-        if (!isZero(evalF(f, x))) {
-            return false
+        try {
+            const fx = evalF(f, x)
+            if (Number.isFinite(fx) // don't break when we encounter NaN or Infinity because of some division by 0
+                && !isZero(fx)) {
+                return false
+            }
+            atLestOnePointIsNotAnError = true
         }
+        catch {}
     }
-    return true
+    return atLestOnePointIsNotAnError
 }
 
 export default (f: string, g: string): boolean => {

@@ -14,7 +14,8 @@
     "core-js": "^3.6.5",
     "d3": "^3.5.17",
     "function-plot": "^1.19.2",
-    "hyperapp": "^2.0.4"
+    "hyperapp": "^2.0.4",
+    "mathjs": "^8.0.1"
   },
   "devDependencies": {
     "hyperapp-v2-basiclogger": "^0.3.0",
