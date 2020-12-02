@@ -8,7 +8,7 @@ export default (state: State) => {
         [
             h('h1', {}, "Can you make the blue curve match the red one ?"),
             h('h2', {}, "Type in any expression and press enter when you're done"),
-            Plot(state.functions[0], state.functions[1]),
+            Plot(state.functions[0], state.functions[1], state.areFunctionsEqual),
         ]
     )
 }

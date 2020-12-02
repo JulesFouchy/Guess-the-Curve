@@ -16,9 +16,17 @@ body {
 }
 
 .function-input {
-    margin: 10px;
     font-size: 15px;
     font-family: 'Ubuntu', sans-serif;
+}
+
+#function-input-wrapper {
+    padding: 3px;
+    margin: 8px;
+    border-radius: 2px;
+    &.success {
+        background-color: rgb(30, 255, 22);
+    }
 }
 
 .function-plot {
@@ -27,15 +35,3 @@ body {
     height:400px;
     background-color: white;
 }
-  
-// .functionPlot:after {
-// content: "";
-// display: block;
-// padding-bottom: 100%;
-// }
-
-// .functionPlotContent {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//   }

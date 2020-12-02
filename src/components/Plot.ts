@@ -1,7 +1,9 @@
 import { h } from 'hyperapp'
 import type { State } from '../state'
 import type { Func } from '../types/Func'
+import FunctionsAreEqual from '../helper/FunctionsAreEqual'
 
+// @ts-expect-error
 window.d3 = require("d3")
 const functionPlot = require("function-plot")
 
@@ -10,8 +12,10 @@ const setPlotErrorMessage = (msg: string) => {
 }
 
 const ParseFunc = (func: string): string => {
-    // replace "pi" by its value
-    return func.replaceAll("pi", "3.141592653590")
+    let str = func
+    // @ts-expect-error
+    str = str.replaceAll("pi", "3.141592653590")
+    return str
 }
 
 const Input = (func: Func) => h(
@@ -21,8 +25,9 @@ const Input = (func: Func) => h(
         spellcheck: false,
         oninput: (state: State, event) => {
             setPlotErrorMessage('')
-            const stateCopy: State = {...state}
+            const stateCopy: State = { ...state }
             stateCopy.functions[func.index].value = event.target.value
+            stateCopy.areFunctionsEqual = FunctionsAreEqual(stateCopy.functions[0].value, stateCopy.functions[1].value)
             return stateCopy
         },
         value: func.value
@@ -55,7 +60,7 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
     return h('div', {id, class: 'function-plot'}, [])
 }
 
-export default (myFunc: Func, targetFunc: Func) => {
+export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean) => {
     return h(
         'div', 
         {
@@ -63,7 +68,13 @@ export default (myFunc: Func, targetFunc: Func) => {
         }, 
         [
             Plot (myFunc, targetFunc),
-            Input(myFunc),
+            h('div',
+            {
+                id: 'function-input-wrapper',
+                class: areFunctionsEqual ? 'success' : '',
+            },
+                Input(myFunc),
+            ),
             h('div', 
             {
                 id: 'plot-error'
