@@ -7,6 +7,7 @@ interface State {
     funcToGuessIdx: number,
     areFunctionsEqual: boolean,
     score: number,
+    finished: boolean,
 }
 
 const state: State = {
@@ -19,6 +20,7 @@ const state: State = {
     funcToGuessIdx: 0,
     areFunctionsEqual: false,
     score: 0,
+    finished: false,
 }
 
 export default state

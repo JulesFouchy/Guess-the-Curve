@@ -14,6 +14,7 @@ export default (state: State): State => {
             return {
                 ...state,
                 score: state.score+1,
+                finished: true,
             }
         }
     }
