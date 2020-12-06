@@ -26,8 +26,11 @@ const Input = (func: Func) => h(
         oninput: (state: State, event) => {
             setPlotErrorMessage('')
             const stateCopy: State = { ...state }
-            stateCopy.functions[func.index].value = event.target.value
-            stateCopy.areFunctionsEqual = FunctionsAreEqual(stateCopy.functions[0].value, stateCopy.functions[1].value)
+            stateCopy.myFunction.value = event.target.value
+            stateCopy.areFunctionsEqual = FunctionsAreEqual(
+                stateCopy.myFunction.value,
+                stateCopy.functionsToGuess[stateCopy.funcToGuessIdx].value
+            )
             return stateCopy
         },
         value: func.value
