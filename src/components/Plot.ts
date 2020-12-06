@@ -2,6 +2,7 @@ import { h } from 'hyperapp'
 import type { State } from '../state'
 import type { Func } from '../types/Func'
 import FunctionsAreEqual from '../helper/FunctionsAreEqual'
+import ShowSolution from '../actions/ShowSolution'
 
 // @ts-expect-error
 window.d3 = require("d3")
@@ -73,10 +74,21 @@ export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean) => {
             Plot (myFunc, targetFunc),
             h('div',
             {
-                id: 'function-input-wrapper',
-                class: areFunctionsEqual ? 'success' : '',
+                id: 'input-and-solution-button'
             },
-                Input(myFunc),
+                h('div',
+                {
+                    id: 'function-input-wrapper',
+                    class: areFunctionsEqual ? 'success' : '',
+                },
+                    Input(myFunc),
+                ),
+                h('button', 
+                {
+                    onclick: ShowSolution
+                },
+                    'See Solution'
+                )
             ),
             h('div', 
             {

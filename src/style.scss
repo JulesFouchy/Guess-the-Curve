@@ -35,3 +35,20 @@ body {
     height:400px;
     background-color: white;
 }
+
+#blurred-background {
+    background-color: rgba(63, 63, 63, 0.8);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#solution {
+    text-align: center;
+}

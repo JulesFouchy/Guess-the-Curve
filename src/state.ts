@@ -8,19 +8,21 @@ interface State {
     areFunctionsEqual: boolean,
     score: number,
     finished: boolean,
+    solution: string,
 }
 
 const state: State = {
     myFunction: {value: '0'},
     functionsToGuess: [
-        {value: 'x', explanation: ''},
-        {value: 'x^2', explanation: ''},
-        {value: 'exp(x)', explanation: ''},
+        {value: 'x', explanation: "Bah c'est x"},
+        {value: 'x^2', explanation: "Là c'est x^2"},
+        {value: 'exp(x)', explanation: "La réciproque de ln"},
     ],
     funcToGuessIdx: 0,
     areFunctionsEqual: false,
     score: 0,
     finished: false,
+    solution: '',
 }
 
 export default state
