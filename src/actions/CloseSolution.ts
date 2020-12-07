@@ -3,7 +3,8 @@ import MoveToNextCurve from './MoveToNextCurve'
 
 export default (state: State): State => {
     return {
-        ...MoveToNextCurve(state, false),
+        ...state,
         solution: '',
+        shouldEarnPoints: false,
     }
 }

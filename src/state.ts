@@ -9,6 +9,7 @@ interface State {
     score: number,
     finished: boolean,
     solution: string,
+    shouldEarnPoints: boolean,
 }
 
 const state: State = {
@@ -23,6 +24,7 @@ const state: State = {
     score: 0,
     finished: false,
     solution: '',
+    shouldEarnPoints: true,
 }
 
 export default state
