@@ -46,7 +46,7 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
                 target: '#'+id,
                 width: 400,
                 height: 400,
-                disableZoom: true,
+                // disableZoom: true,
                 grid: true,
                 data: [
                     { fn: ParseFunc(myFunc.value) },
