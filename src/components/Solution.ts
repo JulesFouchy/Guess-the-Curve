@@ -13,12 +13,12 @@ export default (solution: string) => {
             id: 'solution',
         },
         [
-            solution,
+            h('p', {}, solution),
             h('button',
             {
                 onclick: CloseSolution
             },
-                'Got it !'
+                'Okay !'
             )
         ]
         )

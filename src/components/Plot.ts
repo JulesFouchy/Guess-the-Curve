@@ -87,7 +87,7 @@ export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean) => {
                 {
                     onclick: ShowSolution
                 },
-                    'See Solution'
+                    'Voir la solution'
                 )
             ),
             h('div', 

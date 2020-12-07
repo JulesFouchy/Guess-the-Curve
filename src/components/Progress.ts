@@ -12,7 +12,7 @@ export default (myScore: number, currCurve: number, nbCurves: number) => {
 
             },
             [
-                `Finished Curves : ${currCurve} / ${nbCurves}`
+                `${currCurve} / ${nbCurves} Courbes finies`
             ]
             ),
             h('p',
@@ -20,7 +20,7 @@ export default (myScore: number, currCurve: number, nbCurves: number) => {
 
             },
             [
-                `Score : ${myScore}`
+                `${myScore} points`
             ]
             ),
         ]

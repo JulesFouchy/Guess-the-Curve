@@ -8,10 +8,15 @@ export default (state: State) => {
     return h(
         'div', {}, 
         [
-            h('h1', {}, "Can you make the blue curve match the red one ?"),
-            h('h2', {}, "Type in any expression and press enter when you're done"),
-            Plot(state.myFunction, state.functionsToGuess[state.funcToGuessIdx], state.areFunctionsEqual),
-            Progress(state.score, state.funcToGuessIdx + (state.finished ? 1 : 0), state.functionsToGuess.length),
+            h('div', {id: "column-1"}),
+            h('div', {id: "column-2"}, [
+                h('h2', {}, "Peux-tu reproduire la courbe rouge ?"),
+                h('h3', {}, "Entre une expression et fait ENTREE quand c'est bon !"),
+                Plot(state.myFunction, state.functionsToGuess[state.funcToGuessIdx], state.areFunctionsEqual),
+            ]),
+            h('div', {id: "column-3"}, [
+                Progress(state.score, state.funcToGuessIdx + (state.finished ? 1 : 0), state.functionsToGuess.length),
+            ]),
             state.solution !== '' && Solution(state.solution)
         ]
     )

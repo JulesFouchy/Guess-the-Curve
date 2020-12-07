@@ -14,8 +14,8 @@ interface State {
 const state: State = {
     myFunction: {value: '0'},
     functionsToGuess: [
-        {value: 'x', explanation: "Bah c'est x"},
-        {value: 'x^2', explanation: "Là c'est x^2"},
+        {value: 'x', explanation: "On voit que c'est une droite ; elle a une pente de 1 et passe par l'origine, donc c'est x"},
+        {value: 'x^2', explanation: "Ca ressemble vachement à une parabole ! (C'est-à-dire la famille des ax^2 + bx + c) On peut vérifier quelques valeurs (f(0) = 0, f(2) = 4) pour se convaincre que c'est bien x^2 tout court."},
         {value: 'exp(x)', explanation: "La réciproque de ln"},
     ],
     funcToGuessIdx: 0,
