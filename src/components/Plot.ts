@@ -51,7 +51,9 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
                 data: [
                     { fn: ParseFunc(myFunc.value) },
                     { fn: ParseFunc(targetFunc.value) },
-                ]
+                ],
+                xAxis: { domain: targetFunc.xDomain },
+                yAxis: { domain: targetFunc.xDomain },
             })
         }
         catch(e) {
