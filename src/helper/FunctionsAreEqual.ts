@@ -28,5 +28,10 @@ export default (f: string, g: string): boolean => {
     let diff = `(${f}) - (${g})`
     // @ts-expect-error
     diff = diff.replaceAll("ln", "log")
-    return isZeroFunction(diff)
+    try {
+        return isZeroFunction(diff)
+    }
+    catch {
+        return false
+    }
 }
