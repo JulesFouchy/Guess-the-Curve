@@ -41,12 +41,8 @@ const Input = (func: Func) => h(
     }
 )
 
-const Plot = (myFunc: Func, targetFunc: Func, isSendingCurves: boolean) => {
+const Plot = (myFunc: Func, targetFunc: Func) => {
     const id = 'main-function-plot'
-    const data = !isSendingCurves 
-        ? [{ fn: ParseFunc(myFunc.value) }, { fn: ParseFunc(targetFunc.value) } ]
-        : [{ fn: ParseFunc(myFunc.value) }]
-    console.log(data)
     setTimeout(() => {
         try {
             functionPlot({
@@ -55,7 +51,10 @@ const Plot = (myFunc: Func, targetFunc: Func, isSendingCurves: boolean) => {
                 height: 400,
                 // disableZoom: true,
                 grid: true,
-                data: data,
+                data: [
+                    { fn: ParseFunc(myFunc.value) },
+                    { fn: ParseFunc(targetFunc.value) },
+                ],
                 xAxis: { domain: targetFunc.xDomain },
                 yAxis: { domain: targetFunc.xDomain },
             })
@@ -77,7 +76,7 @@ export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean, isSe
             class: 'plot-and-input'
         }, 
         [
-            Plot (myFunc, targetFunc, isSendingCurves),
+            Plot (myFunc, !isSendingCurves ? targetFunc : {value: "0"}),
             h('div',
             {
                 id: 'input-and-solution-button'
