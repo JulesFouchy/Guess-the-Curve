@@ -94,6 +94,15 @@ export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean, isSe
                 },
                     'Voir la solution'
                 ),
+                !isSendingCurves && h('button', 
+                {
+                    onclick: (state: State): State => ({
+                        ...state,
+                        funcToGuessIdx: state.funcToGuessIdx+1
+                    })
+                },
+                    'Skip'
+                ),
                 isSendingCurves && h('button', 
                 {
                     onclick: SendFunction
