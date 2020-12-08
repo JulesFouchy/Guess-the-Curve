@@ -11,6 +11,7 @@
   "author": "Jules Fouchy",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "d3": "^3.5.17",
     "function-plot": "^1.19.2",

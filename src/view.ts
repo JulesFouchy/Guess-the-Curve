@@ -4,6 +4,8 @@ import Plot from './components/Plot'
 import Progress from './components/Progress'
 import Solution from './components/Solution'
 
+import axios from 'axios'
+
 export default (state: State) => {
     return h(
         'div', {}, 
@@ -17,7 +19,13 @@ export default (state: State) => {
             h('div', {id: "column-3"}, [
                 Progress(state.score, state.funcToGuessIdx + (state.finished ? 1 : 0), state.functionsToGuess.length),
             ]),
-            state.solution !== '' && Solution(state.solution)
+            state.solution !== '' && Solution(state.solution),
+            h('button',{
+                onclick: (state) => {
+                    axios.put('https://guess-the-curve.herokuapp.com/', { value: 'x^10', explanation: "lol" }).then(a => console.log(a))
+                    return state
+                }
+            })
         ]
     )
 }
