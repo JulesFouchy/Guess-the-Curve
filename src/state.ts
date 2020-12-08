@@ -11,6 +11,7 @@ interface State {
     finished: boolean,
     solution: string,
     shouldEarnPoints: boolean,
+    sendingCurves: boolean,
 }
 
 const state: State = {
@@ -22,6 +23,7 @@ const state: State = {
     finished: false,
     solution: '',
     shouldEarnPoints: true,
+    sendingCurves: false,
 }
 
 export default state

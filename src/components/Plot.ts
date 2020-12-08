@@ -3,6 +3,7 @@ import type { State } from '../state'
 import type { Func } from '../types/Func'
 import FunctionsAreEqual from '../helper/FunctionsAreEqual'
 import ShowSolution from '../actions/ShowSolution'
+import SendFunction from '../actions/SendFunction'
 
 // @ts-expect-error
 window.d3 = require("d3")
@@ -68,7 +69,7 @@ const Plot = (myFunc: Func, targetFunc: Func) => {
     return h('div', {id, class: 'function-plot'}, [])
 }
 
-export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean) => {
+export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean, isSendingCurves: boolean) => {
     return h(
         'div', 
         {
@@ -87,12 +88,18 @@ export default (myFunc: Func, targetFunc: Func, areFunctionsEqual: boolean) => {
                 },
                     Input(myFunc),
                 ),
-                h('button', 
+                !isSendingCurves && h('button', 
                 {
                     onclick: ShowSolution
                 },
                     'Voir la solution'
-                )
+                ),
+                isSendingCurves && h('button', 
+                {
+                    onclick: SendFunction
+                },
+                    'Envoyer cette courbe'
+                ),
             ),
             h('div', 
             {
