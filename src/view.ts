@@ -20,12 +20,15 @@ export default (state: State) => {
                 Progress(state.score, state.funcToGuessIdx + (state.finished ? 1 : 0), state.functionsToGuess.length),
             ]),
             state.solution !== '' && Solution(state.solution),
-            h('button',{
-                onclick: (state) => {
-                    axios.put('https://guess-the-curve.herokuapp.com/', { value: 'x^10', explanation: "lol" }).then(a => console.log(a))
-                    return state
-                }
-            })
+            // h('button',{
+            //     onclick: (state) => {
+            //         axios.put('https://guess-the-curve.herokuapp.com/',{
+            //             value: 'x^1',
+            //             explanation: "bonjour",
+            //         }).then(a=>console.log(a.data==="success"))
+            //         return state
+            //     }
+            // })
         ]
     )
 }
