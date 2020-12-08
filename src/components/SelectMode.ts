@@ -1,9 +1,9 @@
 import { h } from 'hyperapp'
 
-import axios from 'axios'
 import funcToGuess from '../functionsToGuess'
 import { State } from '../state'
 import GetFunctions from '../actions/GetFunctions'
+import SendFunction from '../actions/SendFunction'
 
 export default () => {
     return h(
@@ -38,16 +38,10 @@ export default () => {
             ),
             h('button',
             {
-                onclick: (state) => {
-                    // axios.put('https://guess-the-curve.herokuapp.com/',{
-                    //     value: 'x^1',
-                    //     explanation: "bonjour",
-                    // }).then(a=>console.log(a.data==="success"))
-                    return {
-                        ...state,
-                        sendingCurves: true,
-                    }
-                }
+                onclick: (state) => ({
+                    ...state,
+                    sendingCurves: true,
+                })
             },
             "Envoyer des courbes personnalisées"
             ),

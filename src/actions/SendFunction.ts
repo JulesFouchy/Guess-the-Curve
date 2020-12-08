@@ -1,24 +1,13 @@
 import type { State } from '../state'
+import axios from 'axios'
 
-const eFetchJSONData = (dispatch, options) => {
-    fetch(options.url)
-        .then(response => response.json())
-        .then(data => dispatch(options.onresponse, data))
-        .catch(() => dispatch(options.onresponse, {}))
-}
-
-const ecFetchFunctionsToGuess = () => [
-    eFetchJSONData,
-    {
-        url: 'https://guess-the-curve.herokuapp.com/',
-        onresponse: (state: State): State => {
-            console.log("okay")
-            return state
-        },
+export default (state: State): State => {
+    axios.put('https://guess-the-curve.herokuapp.com/',{
+        value: state.myFunction.value,
+        explanation: state.myFunction.value,
+    })
+    return {
+        ...state,
+        myFunction: {value: '0'} 
     }
-]
-
-export default (state: State) => {
-    console.log('go')
-    return [state, ecFetchFunctionsToGuess()]
 }
