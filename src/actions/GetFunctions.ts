@@ -1,5 +1,14 @@
 import type { State } from '../state'
 
+const shuffle = (_arr) => {
+    let arr = [..._arr]
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
 const eFetchJSONData = (dispatch, options) => {
     fetch(options.url)
         .then(response => response.json())
@@ -14,7 +23,7 @@ const ecFetchFunctionsToGuess = () => [
         onresponse: (state: State, res): State => {
             return {
                 ...state,
-                functionsToGuess: res.map(func => ({
+                functionsToGuess: shuffle(res).map(func => ({
                     value: func.value,
                     explanation: func.explanation
                 })),
