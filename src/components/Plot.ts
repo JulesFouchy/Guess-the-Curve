@@ -16,6 +16,8 @@ const ParseFunc = (func: string): string => {
     let str = func
     // @ts-expect-error
     str = str.replaceAll("pi", "3.141592653590")
+    // @ts-expect-error
+    str = str.replaceAll("racine", "sqrt")
     return str
 }
 
@@ -29,7 +31,7 @@ const Input = (func: Func) => h(
             const stateCopy: State = { ...state }
             stateCopy.myFunction.value = event.target.value
             stateCopy.areFunctionsEqual = FunctionsAreEqual(
-                stateCopy.myFunction.value,
+                ParseFunc(stateCopy.myFunction.value),
                 stateCopy.functionsToGuess[stateCopy.funcToGuessIdx].value
             )
             return stateCopy
