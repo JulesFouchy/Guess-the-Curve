@@ -21,9 +21,9 @@ const f: FuncToGuess[] = [
     {value: 'tan(x)', explanation: "La légendaire tan(x)"},
     {value: 'x*sin(x)', xDomain: [-40, 40], yDomain: [-40, 40], explanation: "On voit que ça oscille comme un cos ou sin, mais l'amplitude est bornée par les droites x et -x, donc ça doit être x*cos(x) ou x*sin(x). On peut trancher sans même tester en remarquant que la fonction est paire : c'est donc x*sin(x) (impair * impair = pair)"},
     {value: 'cos(x)+cos(10*x)', explanation: "On dirait globalement un cos, mais il y a aussi des oscillations très rapides autour de ce cos. C'est qu'on a dû lui rajouter un autre cosinus à une fréquence plus élevée. En l'occurence c'est cos(x) + cos(10*x)"},
+    {value: 'abs(sin(x))', explanation: "Un beau sin, mais qui semble cassé dès qu'il veut passer négatif. Sans doute abs(sin(x))"},
     {value: 'exp(-x*x)', explanation: "La légendaire gaussienne exp(-x^2). Le -x^2 fait en sorte que l'argument est toujours négatif, et on sait qu'une exponentielle tend très vite vers 0 quand son argument tend vers -∞"},
     {value: 'exp(-abs(x))', explanation: "exp(-abs(x)), nettement moins jolie que exp(-x^2)."},
-    {value: 'abs(sin(x))', explanation: "Un beau sin, mais qui semble cassé dès qu'il veut passer négatif. Sans doute abs(sin(x))"},
 ]
 
 export default f
